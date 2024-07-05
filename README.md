@@ -23,3 +23,12 @@ The SQL Scripts used for this project includes:
   JOIN treatments t ON p.patient_id=t.patient_id
   WHERE t.treatment_date>=CURDATE()-INTERVAL 1 MONTH
   OR t.treatment_date BETWEEN '2023-01-01' AND '2023-04-04';
+
+  **Views**
+     'patient_treatments': A view showing patients along with their treatments.
+  
+  **Stored Procedures**
+     'GetPtientsWithTreatments': A procedure to fetch patients along with their treatments
+ 
+ **Complex Joins**
+     A query joining patients ,treatments and staff to shaw comprehensive data.
