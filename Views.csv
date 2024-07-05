@@ -1,0 +1,6 @@
+patient_id,patient_name,age,gender,location,treatment_id,treatment_name,treatment_date
+1,kishore,45,male,bangalore,101,Surgery,2023-01-01
+2,"John Doe",46,male,NewYork,102,Therapy,2023-02-15
+3,"Jane Smith",52,female,California,103,Medication,2023-03-10
+4,"Bob Johnson",36,male,Texas,104,Therapy,2023-04-05
+5,"Alice Williams",29,female,Florida,105,Surgery,2023-05-20

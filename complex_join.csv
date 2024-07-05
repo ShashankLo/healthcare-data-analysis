@@ -1,0 +1,6 @@
+patient_id,patient_name,treatment_id,treatment_name,treatment_date,staff_id,staff_name,department
+1,kishore,101,Surgery,2023-01-01,101,Dr.Adams,Surgery
+2,"John Doe",102,Therapy,2023-02-15,102,Dr.Baker,Therapy
+3,"Jane Smith",103,Medication,2023-03-10,103,"Nurse Clark",General
+4,"Bob Johnson",104,Therapy,2023-04-05,104,Dr.Davis,Therapy
+5,"Alice Williams",105,Surgery,2023-05-20,105,"Nurse Evans",Surgery
