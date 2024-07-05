@@ -96,3 +96,45 @@ SELECT AVG(age) AS Avg_age FROM patients;
 /*Group the patients by location*/
 SELECT location,COUNT(*) AS count FROM patients
 GROUP BY location;
+
+/*Creating Views for patients with their treatments*/
+CREATE OR REPLACE VIEW patient_treatments AS 
+SELECT 
+	p.patient_id,
+    p.name AS patient_name,p.age,p.gender,p.location,
+    t.treatment_id ,t.treatment_name,t.treatment_date 
+    FROM patients p JOIN treatments t ON p.patient_id = t.patient_id;
+SELECT * FROM patient_treatments;
+
+/*Creating a Stored procedure*/
+DELIMITER $$
+CREATE PROCEDURE AddNewPatient(
+	IN p_patient_id INT,
+	IN p_name VARCHAR(100),
+    IN p_age INT,
+    IN p_gender VARCHAR(10),
+    IN p_location VARCHAR(100)
+)
+BEGIN
+	INSERT INTO patients (patient_id ,name,age,gender,location)
+    VALUES(p_patient_id,p_name,p_age,p_gender,p_location);
+    
+    INSERT INTO action_log(action_type,action_decription)
+    VALUES ('Add patient',CONCAT ('Added new patient:',p_name));
+    END $$
+DELIMITER ;
+
+CALL AddNewPatient(6,'Shashank',23,'male','Mandya');
+    
+/*Complex join*/
+SELECT 
+	p.patient_id,
+    p.name AS patient_name,
+    t.treatment_id,
+    t.treatment_name,
+    t.treatment_date,
+    s.staff_id,
+    s.name AS staff_name,
+    s.department
+FROM patients p JOIN treatments t ON p.patient_id=t.patient_id JOIN 
+staff s ON t.treatment_id = s.staff_id;
